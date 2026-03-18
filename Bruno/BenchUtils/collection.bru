@@ -1,0 +1,11 @@
+headers {
+  ~authorization: {{process.env.AuthToken}}
+}
+
+auth {
+  mode: bearer
+}
+
+auth:bearer {
+  token: {{process.env.AuthToken}}
+}

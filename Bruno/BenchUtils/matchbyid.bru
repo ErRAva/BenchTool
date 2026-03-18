@@ -1,0 +1,80 @@
+meta {
+  name: matchbyid
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://mysched-searchandmatchsvc.accenture.com/api/matchbyid/
+  body: json
+  auth: inherit
+}
+
+headers {
+  accept: application/json, text/plain, */*
+  accept-language: en-US,en;q=0.9
+  access-control-allow-origin: *
+  content-type: application/json
+  origin: https://mysched.accenture.com
+  priority: u=1, i
+  sec-ch-ua: "Chromium";v="146", "Not-A.Brand";v="24", "Google Chrome";v="146"
+  sec-ch-ua-mobile: ?0
+  sec-ch-ua-platform: "Windows"
+  sec-fetch-dest: empty
+  sec-fetch-mode: cors
+  sec-fetch-site: same-site
+  user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36
+}
+
+body:json {
+  {
+    "matchID": "{{ProfileId}}",
+    "documentType": "supply",
+    "size": 100,
+    "min_score": 0,
+    "fieldsToReturn": [
+      "id",
+      "specializationMultiplier",
+      "skills_vector",
+      "keyTermsVector_en",
+      "keyTermsIDs",
+      "nativeLanguage",
+      "locationCoordinates",
+      "region",
+      "lcrMultiplier",
+      "RoleLocationTypeName",
+      "RoleLocationTypePercentName",
+      "languageMultiplier",
+      "assignedRole_vector",
+      "talentSegment_vector",
+      "timezone_utc_hrs",
+      "timezone_utc_offset",
+      "expected_languagesMultiplier",
+      "demandIndustryPath",
+      "profileIndustryPath",
+      "aspirationalSpecializationBonus",
+      "buildingSpecializationBonus"
+    ],
+    "filters": [
+      {
+        "name": "id",
+        "type": "categorical",
+        "selections": [
+          "5947364"
+        ]
+      }
+    ],
+    "multipliers": {
+      "region_multiplier": {
+        "enabled": true
+      }
+    },
+    "enableAutomaticFilters": false,
+    "enableRelatedTermsAndSkillsFilter": false
+  }
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}

@@ -1,0 +1,35 @@
+meta {
+  name: projectExecAssign
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://2fyge0ilgc.execute-api.us-east-1.amazonaws.com/PRD2/projectExecAssign?$top=1&$filter=Id%20eq%20{{RoleId}}
+  body: none
+  auth: inherit
+}
+
+params:query {
+  $top: 1
+  $filter: Id%20eq%20{{RoleId}}
+}
+
+headers {
+  accept: application/json, text/plain, */*
+  accept-language: en-US,en;q=0.9
+  origin: https://mysched.accenture.com
+  priority: u=1, i
+  sec-ch-ua: "Chromium";v="146", "Not-A.Brand";v="24", "Google Chrome";v="146"
+  sec-ch-ua-mobile: ?0
+  sec-ch-ua-platform: "Windows"
+  sec-fetch-dest: empty
+  sec-fetch-mode: cors
+  sec-fetch-site: cross-site
+  user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}

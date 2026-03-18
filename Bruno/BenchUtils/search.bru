@@ -1,0 +1,123 @@
+meta {
+  name: search
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://mysched-searchandmatchsvc.accenture.com/api/search/
+  body: json
+  auth: inherit
+}
+
+headers {
+  accept: application/json, text/plain, */*
+  accept-language: en-US,en;q=0.9
+  access-control-allow-origin: *
+  content-type: application/json
+  origin: https://mysched.accenture.com
+  priority: u=1, i
+  sec-ch-ua: "Chromium";v="146", "Not-A.Brand";v="24", "Google Chrome";v="146"
+  sec-ch-ua-mobile: ?0
+  sec-ch-ua-platform: "Windows"
+  sec-fetch-dest: empty
+  sec-fetch-mode: cors
+  sec-fetch-site: same-site
+  user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36
+}
+
+body:json {
+  {
+    "query": "{{Query}}",
+    "min_score": 0,
+    "size": 100,
+    "offset": 0,
+    "filters": [
+      {
+        "name": "demandStatus",
+        "type": "categorical",
+        "selections": [
+          "Open - New",
+          "Open - In Process",
+          "Open - Need Project Feedback",
+          "Open - Confirming Candidate"
+        ]
+      },
+      {
+        "name": "country",
+        "type": "categorical",
+        "selections": [
+          "USA"
+        ]
+      },
+      {
+        "name": "level",
+        "type": "categorical",
+        "selections": [
+          "10000090",
+          "10000080",
+          "10000070"
+        ]
+      },
+      {
+        "name": "roleStartDate",
+        "type": "date",
+        "from": "2026-01-01",
+        "to": "2026-04-16"
+      }
+    ],
+    "multipliers": {
+      "region_multiplier": {
+        "enabled": true
+      }
+    },
+    "fieldsToReturn": [
+      "AFEPath",
+      "isAva",
+      "isGcp",
+      "isNationalSecurity",
+      "deliveryCenter",
+      "id",
+      "roleTitle",
+      "roleStartDate",
+      "roleEndDate",
+      "metroCity",
+      "projectIndustry",
+      "keyTermsIDs",
+      "nativeLanguage",
+      "locationCoordinates",
+      "region",
+      "specializationMultiplier",
+      "level",
+      "client",
+      "demandIndustryPath",
+      "profileIndustryPath",
+      "aspirationalSpecializationBonus",
+      "buildingSpecializationBonus",
+      "level",
+      "geographicUnit",
+      "marketUnit",
+      "country",
+      "lcrMultiplier",
+      "roleIsSold",
+      "isReadyToHardLock",
+      "languages",
+      "RoleLocationTypeName",
+      "RoleLocationTypePercentName",
+      "languageMultiplier",
+      "acceptingResume",
+      "timezone_utc_hrs",
+      "timezone_utc_offset",
+      "expected_languagesMultiplier"
+    ]
+  }
+}
+
+vars:pre-request {
+  Query: .net
+}
+
+settings {
+  encodeUrl: false
+  timeout: 0
+}
