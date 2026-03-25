@@ -1,3 +1,10 @@
 <Solution>
-  <Project Path="ConsoleApp/ConsoleApp.csproj" />
+  <Folder Name="/src/">
+    <Project Path="src/BenchTool.Cli/BenchTool.Cli.csproj" />
+    <Project Path="src/BenchTool.Common/BenchTool.Common.csproj" />
+    <Project Path="src/BenchTool.Contracts/BenchTool.Contracts.csproj" />
+    <Project Path="src/BenchTool.Domain/BenchTool.Domain.csproj" />
+    <Project Path="src/BenchTool.Infrastructure.BenchApi/BenchTool.Infrastructure.BenchApi.csproj" />
+    <Project Path="src/BenchTool.McpServer/BenchTool.McpServer.csproj" />
+  </Folder>
 </Solution>
